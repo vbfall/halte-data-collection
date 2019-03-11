@@ -1,3 +1,18 @@
+# Directory containing training & test data
+data/clips/**
+models/data/clips/**
+
+
+# Support data
+credentials.log
+
+# Support data
+credentials.log
+
+# Foundations (at least while using an open git repo)
+docker/foundations
+docker/foundations/**
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
