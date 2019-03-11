@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Help label images
+{% endblock %}
+
+{% block main %}
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+    jQuery('input,select,textarea').persist({
+      session :false
+    });
+  });
+</script>
+
+
+
+<!-- can there be a layout within a layout? -->
+<form class="container-fluid" action="/imagesHelp" method="post">
+  <input type="hidden" id="image_id" name="image_id" value={{image_id}}>
+  <div class="row">
+    <!-- this perhaps should be a sidebar? -->
+    <div class="col-fluid shrink m-2">
+      Please identify yourself:<br>
+      <small>(for statistical purposes and thanks)</small>
+      <div class="justify-content-around">
+        <input id="user_name" name="user_name" type="username" autofocus class="form-control" size="12" placeholder="NAME, Initial" /><br>
+        <input id="nationality" name="nationality" type="text" class="form-control" size="12" placeholder="Nationality" /><br>
+        <select id="favored_weapon" name="favored_weapon" class="form-control" type="text" placeholder="Weapon">
+          <option disabled selected value=''>Fav. weapon</option>
+          <option value="epee">Epee</option>
+          <option value="foil">Foil</option>
+          <option value="sabre">Sabre</option>
+        </select>
+        <br>
+        <input id="fencing_since" name="fencing_since" class="form-control" type="year" size="12" placeholder="fenc. since" /><br>
+        <input id="yob" name="yob" type="year" class="form-control" size="12" placeholder="born year" />
+      </div>
+    </div>
+
+    <div class="col-xl-auto m-2">
+      <div class="row">
+        <div class="col-md-auto"><img src={{image_path}} class="img-fluid" alt="Image goes here">
+        </div>
+        <div class="col-fluid m-2">Source: xxxxx
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md m-2">
+        Please choose a label according to the weapon in use (or "none" if not a fencing match)
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md m-2" align="center">
+          <div class="justify-content-around" >
+            <button class="btn btn-primary" type="submit" value="epee" name="label">Epee</button>
+            <button class="btn btn-primary" type="submit" value="foil" name="label">Foil</button>
+            <button class="btn btn-primary" type="submit" value="sabre" name="label">Sabre</button>
+            <button class="btn btn-primary" type="submit" value="none" name="label">None</button>
+          </div>
+        </div>
+        <div class="col- m-2">
+          <div class="justify-content-center">
+            <button class="btn btn-primary" type="submit" value="skip" name="label">Skip</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}

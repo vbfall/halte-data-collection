@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Thanks
+{% endblock %}
+
+{% block main %}
+<div class="container-fluid text_message" style="background: url('/static/static-images/salutation.jpg')">
+  <div class="row">
+    <div class="col-fluid m-3">
+      <h3>Thanks to all who helped develop this project!</h3>
+      Aydin Polat @<a href="https://www.dessa.com">Dessa</a><br>
+      Joseph Palermo @<a href="https://www.dessa.com">Dessa</a><br>
+    </div>
+    <div class="col-fluid m-3">
+      <h3>Thanks to all fencers who helped label the data!</h3>
+      {% for row in thanks_list %}
+      {{ row }}<br>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
